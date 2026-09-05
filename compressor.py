@@ -39,7 +39,7 @@ class FileResult:
         return max(self.original_size - self.compressed_size, 0)
 
     @property
-    def saved_precent(self) -> float:
+    def saved_percent(self) -> float:
         if self.original_size == 0:
             return 0.0
         return self.saved_bytes / self.original_size * 100
