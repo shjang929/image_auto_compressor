@@ -15,12 +15,11 @@ def format_bytes(n: float) -> str:
     size = float(n)
     for unit in ("B", "KB", "MB", "GB"):
         if size < 1024 or unit == "GB":
-            if size <1024 or unit == "GB":
-                if unit == "B":
-                    return f"{int(size)}{unit}"
-                return f"{size:.1f}{unit}"
-            size /= 1024
-        return f"{size:.1f}TB"
+            if unit == "B":
+                return f"{int(size)}{unit}"
+            return f"{size:.1f}{unit}"
+        size /= 1024
+    return f"{size:.1f}TB"
 
 def format_file_line(fr: FileResult) -> str:
     """파일 하나의 압축 전/후 용량 비교를 한 줄로 표현한다."""
@@ -28,7 +27,7 @@ def format_file_line(fr: FileResult) -> str:
         return f"[오류] {fr.src_path}: {fr.message}"
     return (
         f"{fr.src_path}: {format_bytes(fr.original_size)} -> "
-        f"{format_bytes(fr.compressed_size)}"
+        f"{format_bytes(fr.compressed_size)} "
         f"(-{fr.saved_percent:.1f}%, {format_bytes(fr.saved_bytes)} 절감)"
     )
 
