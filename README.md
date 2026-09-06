@@ -1,1 +1,1 @@
-# image_auto_compressor (B brench version)
+# image_auto_compressor (B branch version)
