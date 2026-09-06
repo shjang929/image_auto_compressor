@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+venv/
+test_output/
+test_images/
+*_compressed/
